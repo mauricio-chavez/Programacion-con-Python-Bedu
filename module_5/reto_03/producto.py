@@ -19,4 +19,4 @@ class Hotel(Producto):
 
     @property
     def subtotal(self):
-        return self.precio * self.cantidad * self.personas
+        return super().subtotal * self.personas
