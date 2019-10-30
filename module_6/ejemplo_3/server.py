@@ -1,21 +1,23 @@
-from bottle import route, run, template,  response, static_file
+import os
 
+from bottle import route, run, response, static_file
 
-respuesta = {
-    'mensaje': 'Hola mundo desde Python',
-    'codigoRespuesta': 200
-}
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 @route("/")
 def index():
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
-    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-    return respuesta
+    response = {
+        'mensaje': 'Hola mundo desde Python',
+        'codigoRespuesta': 200
+    }
+    return response
 
-@route("/python")
+
+@route("/foto-rick")
 def archivo():
-    return static_file('rick.jpg', root='/Users/mauriciochavez/bedu_python/module_6/ejemplo_3/static')
+    return static_file('rick.jpg', root=STATIC_ROOT)
 
 
 run(host="localhost", port=8080, reloader=True)
