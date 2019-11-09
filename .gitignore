@@ -103,6 +103,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Virtual Environment
+env/
+venv/
+.env/
+
 # Miscellaneous
 .vscode/
+.idea/
 .DS_Store
+
